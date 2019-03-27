@@ -1,8 +1,8 @@
 <?php
 
-namespace Esgi\Job\Controller\Adminhtml\Department;
+namespace Esgi\Job\Controller\Adminhtml\Job;
 
-class Edit extends \Esgi\Job\Controller\Adminhtml\Department
+class Edit extends \Esgi\Job\Controller\Adminhtml\Job
 {
     /**
      * @var \Magento\Framework\View\Result\PageFactory
@@ -33,12 +33,12 @@ class Edit extends \Esgi\Job\Controller\Adminhtml\Department
     {
         // 1. Get ID and create model
         $id    = $this->getRequest()->getParam('id');
-        $model = $this->_objectManager->create(\Esgi\Job\Model\Department::class);
+        $model = $this->_objectManager->create(\Esgi\Job\Model\Job::class);
         // 2. Initial checking
         if ($id) {
             $model->load($id);
             if (!$model->getId()) {
-                $this->messageManager->addError(__('This department no longer exists.'));
+                $this->messageManager->addError(__('This job no longer exists.'));
                 /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
                 $resultRedirect = $this->resultRedirectFactory->create();
 
@@ -52,11 +52,11 @@ class Edit extends \Esgi\Job\Controller\Adminhtml\Department
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
         $this->initPage($resultPage)->addBreadcrumb(
-            $id ? __('Edit Department.php') : __('New Department.php'),
-            $id ? __('Edit Department.php') : __('New Department.php')
+            $id ? __('Edit Job') : __('New Job'),
+            $id ? __('Edit Job') : __('New Job')
         );
-        $resultPage->getConfig()->getTitle()->prepend(__('Departments'));
-        $resultPage->getConfig()->getTitle()->prepend($model->getId() ? $model->getName() : __('New Department.php'));
+        $resultPage->getConfig()->getTitle()->prepend(__('Job'));
+        $resultPage->getConfig()->getTitle()->prepend($model->getId() ? $model->getName() : __('New Job'));
 
         return $resultPage;
     }

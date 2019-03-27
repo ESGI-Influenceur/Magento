@@ -26,6 +26,7 @@
             <column name="content"/>
         </index>
     </table>
+
     <table name="esgi_job_job" resource="default" engine="innodb" comment="Job Table">
         <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true"
                 comment="Entity Id"/>
@@ -39,7 +40,7 @@
                 comment="Creation Time"/>
         <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
                 comment="Update Time"/>
-        <column xsi:type="int" name="department_id" padding="10" unsigned="true" nullable="false" comment="Department Id"/>
+        <column xsi:type="int" name="job_id" padding="10" unsigned="true" nullable="false" comment="Job Id"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="entity_id"/>
         </constraint>

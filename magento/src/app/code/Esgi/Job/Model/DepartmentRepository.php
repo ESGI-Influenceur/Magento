@@ -62,7 +62,7 @@ class DepartmentRepository implements DepartmentRepositoryInterface
     }
 
     /**
-     * Save Department data
+     * Save Department.php data
      *
      * @param \Esgi\Job\Api\Data\DepartmentInterface $department
      * @return Department
@@ -80,7 +80,7 @@ class DepartmentRepository implements DepartmentRepositoryInterface
     }
 
     /**
-     * Load Department data by given Department Identity
+     * Load Department.php data by given Department.php Identity
      *
      * @param string $departmentId
      * @return Department
@@ -91,14 +91,14 @@ class DepartmentRepository implements DepartmentRepositoryInterface
         $department = $this->departmentFactory->create();
         $this->resource->load($department, $departmentId);
         if (!$department->getId()) {
-            throw new NoSuchEntityException(__('Department with id "%1" does not exist.', $department));
+            throw new NoSuchEntityException(__('Department.php with id "%1" does not exist.', $department));
         }
 
         return $department;
     }
 
     /**
-     * Load Department data collection by given search criteria
+     * Load Department.php data collection by given search criteria
      *
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
      * @SuppressWarnings(PHPMD.NPathComplexity)
@@ -120,7 +120,7 @@ class DepartmentRepository implements DepartmentRepositoryInterface
     }
 
     /**
-     * Delete Department
+     * Delete Department.php
      *
      * @param \Esgi\Job\Api\Data\DepartmentInterface $department
      * @return bool
@@ -138,7 +138,7 @@ class DepartmentRepository implements DepartmentRepositoryInterface
     }
 
     /**
-     * Delete Department by given Department Identity
+     * Delete Department.php by given Department.php Identity
      *
      * @param string $departmentId
      * @return bool

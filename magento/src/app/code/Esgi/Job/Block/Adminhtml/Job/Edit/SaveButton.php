@@ -1,5 +1,5 @@
 <?php
-namespace Esgi\Job\Block\Adminhtml\Department\Edit;
+namespace Esgi\Job\Block\Adminhtml\Job\Edit;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
@@ -15,7 +15,7 @@ class SaveButton extends GenericButton implements ButtonProviderInterface
     public function getButtonData()
     {
         return [
-            'label' => __('Save Department.php'),
+            'label' => __('Save Job'),
             'class' => 'save primary',
             'data_attribute' => [
                 'mage-init' => ['button' => ['event' => 'save']],

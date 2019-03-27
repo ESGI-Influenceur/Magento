@@ -2,14 +2,14 @@
 
 namespace Esgi\Job\Controller\Adminhtml;
 
-abstract class Department extends \Magento\Backend\App\Action
+abstract class Job extends \Magento\Backend\App\Action
 {
     /**
      * Authorization level of a basic admin session
      *
      * @see _isAllowed()
      */
-    const ADMIN_RESOURCE = 'Esgi_Job::department';
+    const ADMIN_RESOURCE = 'Esgi_Job::job';
     /**
      * Core registry
      *
@@ -39,9 +39,9 @@ abstract class Department extends \Magento\Backend\App\Action
      */
     protected function initPage($resultPage)
     {
-        $resultPage->setActiveMenu('Esgi_Job::department')->addBreadcrumb(__('Job'), __('Department.php'))->addBreadcrumb(
-            __('Departments'),
-            __('Departments')
+        $resultPage->setActiveMenu('Esgi_Job::job')->addBreadcrumb(__('Job'), __('Job'))->addBreadcrumb(
+            __('Jobs'),
+            __('Jobs')
         );
 
         return $resultPage;

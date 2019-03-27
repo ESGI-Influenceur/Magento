@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace Esgi\Job\Model;
 
-use Esgi\Job\Api\Data\DepartmentInterface;
+use Esgi\Job\Api\Data\JobInterface;
 use Magento\Framework\Model\AbstractModel;
 use Magento\Framework\DataObject\IdentityInterface;
-use Esgi\Job\Model\ResourceModel\Department as DepartmentResourceModel;
+use Esgi\Job\Model\ResourceModel\Job as JobResourceModel;
 
-class Department extends AbstractModel implements DepartmentInterface, IdentityInterface
+class Job extends AbstractModel implements JobInterface, IdentityInterface
 {
     /**
-     * Esgi Job department cache tag
+     * Esgi Job job cache tag
      */
-    const CACHE_TAG = 'esgi_job_department';
+    const CACHE_TAG = 'esgi_job_job';
 
     /**#@-*/
     protected $_cacheTag = self::CACHE_TAG;
@@ -33,7 +33,7 @@ class Department extends AbstractModel implements DepartmentInterface, IdentityI
      *
      * @var string
      */
-    protected $_eventObject = 'department';
+    protected $_eventObject = 'job';
 
     /**
      * Name of object id field
@@ -47,7 +47,7 @@ class Department extends AbstractModel implements DepartmentInterface, IdentityI
      */
     protected function _construct()
     {
-        $this->_init(DepartmentResourceModel::class);
+        $this->_init(JobResourceModel::class);
     }
 
     /**
@@ -61,7 +61,7 @@ class Department extends AbstractModel implements DepartmentInterface, IdentityI
     }
 
     /**
-     * Retrieve department id
+     * Retrieve job id
      *
      * @return int
      */
@@ -71,7 +71,7 @@ class Department extends AbstractModel implements DepartmentInterface, IdentityI
     }
 
     /**
-     * Retrieve department name
+     * Retrieve job name
      *
      * @return string
      */
@@ -81,7 +81,7 @@ class Department extends AbstractModel implements DepartmentInterface, IdentityI
     }
 
     /**
-     * Retrieve department content
+     * Retrieve job content
      *
      * @return string
      */
@@ -94,7 +94,7 @@ class Department extends AbstractModel implements DepartmentInterface, IdentityI
      * Set ID
      *
      * @param int $id
-     * @return DepartmentInterface
+     * @return JobInterface
      */
     public function setId($id)
     {
@@ -105,7 +105,7 @@ class Department extends AbstractModel implements DepartmentInterface, IdentityI
      * Set name
      *
      * @param string $title
-     * @return DepartmentInterface
+     * @return JobInterface
      */
     public function setTitle($title)
     {
@@ -116,7 +116,7 @@ class Department extends AbstractModel implements DepartmentInterface, IdentityI
      * Set content
      *
      * @param string $content
-     * @return DepartmentInterface
+     * @return JobInterface
      */
     public function setContent($content)
     {

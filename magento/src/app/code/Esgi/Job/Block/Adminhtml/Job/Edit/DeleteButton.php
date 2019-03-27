@@ -3,11 +3,11 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Esgi\Job\Block\Adminhtml\Department\Edit;
+namespace Esgi\Job\Block\Adminhtml\Job\Edit;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
-/**
+/**s
  * Class DeleteButton
  */
 class DeleteButton extends GenericButton implements ButtonProviderInterface
@@ -18,7 +18,7 @@ class DeleteButton extends GenericButton implements ButtonProviderInterface
     public function getButtonData()
     {
         $data = [];
-        if ($this->getDepartmentId()) {
+        if ($this->getJobId()) {
             $data = [
                 'label' => __('Delete Department.php'),
                 'class' => 'delete',
@@ -36,6 +36,6 @@ class DeleteButton extends GenericButton implements ButtonProviderInterface
      */
     public function getDeleteUrl()
     {
-        return $this->getUrl('*/*/delete', ['id' => $this->getDepartmentId()]);
+        return $this->getUrl('*/*/delete', ['id' => $this->getJobId()]);
     }
 }

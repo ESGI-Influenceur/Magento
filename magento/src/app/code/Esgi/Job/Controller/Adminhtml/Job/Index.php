@@ -1,5 +1,5 @@
 <?php
-namespace Esgi\Job\Controller\Adminhtml\Department;
+namespace Esgi\Job\Controller\Adminhtml\Job;
 
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
@@ -7,7 +7,7 @@ use Magento\Backend\App\Action;
 
 class Index extends Action
 {
-    const ADMIN_RESOURCE = 'Esgi_Job::department';
+    const ADMIN_RESOURCE = 'Esgi_Job::job';
 
     /**
      * @var PageFactory
@@ -35,10 +35,10 @@ class Index extends Action
     {
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('Esgi_Job::department');
-        $resultPage->addBreadcrumb(__('Jobs'), __('Departments'));
-        $resultPage->addBreadcrumb(__('Manage Departments'), __('Manage Departments'));
-        $resultPage->getConfig()->getTitle()->prepend(__('Department.php'));
+        $resultPage->setActiveMenu('Esgi_Job::job');
+        $resultPage->addBreadcrumb(__('Jobs'), __('Job'));
+        $resultPage->addBreadcrumb(__('Manage Job'), __('Manage Job'));
+        $resultPage->getConfig()->getTitle()->prepend(__('Job'));
 
         return $resultPage;
     }
