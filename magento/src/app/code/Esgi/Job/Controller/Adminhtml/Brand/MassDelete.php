@@ -1,10 +1,10 @@
 <?php
-namespace Esgi\Job\Controller\Adminhtml\Job;
+namespace Esgi\Job\Controller\Adminhtml\Brand;
 
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Backend\App\Action\Context;
 use Magento\Ui\Component\MassAction\Filter;
-use Esgi\Job\Model\ResourceModel\Job\CollectionFactory;
+use Esgi\Job\Model\ResourceModel\Brand\CollectionFactory;
 
 /**
  * Class MassDelete
@@ -16,7 +16,7 @@ class MassDelete extends \Magento\Backend\App\Action
      *
      * @see _isAllowed()
      */
-    const ADMIN_RESOURCE = 'Esgi_Job::job';
+    const ADMIN_RESOURCE = 'Esgi_Job::brand';
 
     /**
      * @var Filter

@@ -40,7 +40,7 @@
                 comment="Creation Time"/>
         <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
                 comment="Update Time"/>
-        <column xsi:type="int" name="job_id" padding="10" unsigned="true" nullable="false" comment="Job Id"/>
+        <column xsi:type="int" name="department_id" padding="10" unsigned="true" nullable="false" comment="Department Id"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="entity_id"/>
         </constraint>
@@ -50,5 +50,36 @@
             <column name="title"/>
             <column name="content"/>
         </index>
+    </table>
+
+    <table name="esgi_job_brand" resource="default" engine="innodb" comment="Brand Table">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+        <column xsi:type="varchar" name="title" nullable="false" length="255" comment="Brand name"/>
+        <column xsi:type="varchar" name="linked_products" nullable="true" comment="Linked Products"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="ESGI_BRAND_TITLE" indexType="fulltext">
+            <column name="title"/>
+        </index>
+    </table>
+
+    <!-- TABLE DE LIAISON -->
+    <table name="esgi_job_brand_product" resource="default" engine="innodb" comment="Brands product Table">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" comment="Entity Id"/>
+        <column xsi:type="int" name="brand_id" padding="10" unsigned="true" nullable="false" comment="Brand Id"/>
+        <column xsi:type="int" name="product_id" padding="10" unsigned="true" nullable="false" comment="Product Id"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign" referenceId="ESGI_JOB_BRAND_PRODUCT_ID_CATALOG_PRODUCT_ENTITY_ID" table="esgi_job_brand_product"
+                    column="product_id" referenceTable="catalog_product_entity" referenceColumn="entity_id"
+                    onDelete="CASCADE"/>
+
+        <constraint xsi:type="foreign" referenceId="ESGI_JOB_BRAND_PRODUCT_ID_ESGI_JOB_BRAND_ID" table="esgi_job_brand_product"
+                    column="brand_id" referenceTable="esgi_job_brand" referenceColumn="entity_id"
+                    onDelete="CASCADE"/>
     </table>
 </schema>

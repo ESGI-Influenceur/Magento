@@ -7,6 +7,7 @@ return [
         'Magento_Backend' => 1,
         'Esgi_Helloworld' => 1,
         'Esgi_Job' => 1,
+        'Esgi_Pub' => 1,
         'Magento_Variable' => 1,
         'Magento_Eav' => 1,
         'Magento_AdminNotification' => 1,

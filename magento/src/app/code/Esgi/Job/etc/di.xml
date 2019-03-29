@@ -80,4 +80,46 @@
             <argument name="resourceModel" xsi:type="string">Esgi\Job\Model\ResourceModel\Job</argument>
         </arguments>
     </virtualType>
+
+
+
+    <!-- BRANDS -->
+    <preference for="Esgi\Job\Api\Data\BrandSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults" />
+    <preference for="Esgi\Job\Api\Data\BrandInterface" type="Esgi\Job\Model\Brand" />
+    <preference for="Esgi\Job\Api\BrandRepositoryInterface" type="Esgi\Job\Model\BrandRepository" />
+
+    <virtualType name="BrandGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Esgi\Job\Model\ResourceModel\Brand\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">BrandGridFilterPool</argument> <!-- Define new object for filters -->
+        </arguments>
+    </virtualType>
+
+    <!-- Create our type BrandGridFilterPool -->
+    <virtualType name="BrandGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Type for job_brand_listing_data_source -->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="job_brand_listing_data_source" xsi:type="string">Esgi\Job\Model\ResourceModel\Grid\Brand\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Simulate our class Esgi\Job\Model\ResourceModel\Grid\Brand.php\Collection -->
+    <virtualType name="Esgi\Job\Model\ResourceModel\Grid\Brand\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">esgi_job_brand</argument>
+            <argument name="resourceModel" xsi:type="string">Esgi\Job\Model\ResourceModel\Brand</argument>
+        </arguments>
+    </virtualType>
 </config>
