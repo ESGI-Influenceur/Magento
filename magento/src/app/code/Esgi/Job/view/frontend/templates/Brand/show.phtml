@@ -1,0 +1,17 @@
+<?php
+/** @var $block Esgi\Job\Block\Brand\Show */
+$brand = $block->getBrand();
+$products = $block->getLinkedProductsByBrand($brand);
+?>
+
+<h1><?= $brand->getTitle() ?></h1>
+<ul id="product-list">
+    <?php foreach ($products as $product) : ?>
+        <li>
+            <p>
+                <a href="<?= $product->getProductUrl() ?>"><?= $product->getName() ?></a>
+            </p>
+        </li>
+    <?php endforeach; ?>
+</ul>
+

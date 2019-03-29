@@ -1,0 +1,13 @@
+<?php
+/** @var $block Esgi\Job\Block\Brand\Index */
+$brands = $block->getBrands();
+?>
+<ul id="brand-list">
+    <?php foreach ($brands as $brand) : ?>
+        <li>
+            <a href="/brand/brand/show?id=<?= $brand->getId()?>">
+                <?php echo $brand->getTitle(); ?>
+            </a>
+        </li>
+    <?php endforeach; ?>
+</ul>
